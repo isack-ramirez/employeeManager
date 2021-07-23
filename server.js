@@ -29,7 +29,7 @@ const init = () => {
                     'Add Employee',
                     'Add Role',
                     'Add Department',
-                    
+
                     'Remove Employee',
                     'Remove Role',
                     'Remove Department',
@@ -37,11 +37,11 @@ const init = () => {
 
 
                     'Update Employee Role',
-                    
-                    
-                    
-                    
-                    
+
+
+
+
+
                     'done',
                     new inquirer.Separator()
                 ]
@@ -164,7 +164,7 @@ const addDep = () => {
             connection.query(`INSERT INTO department(name) VALUES('${response.depName}');`
                 , (err, res) => {
                     if (err) throw err;
-                    console.log(res);
+
                     init();
                 });
         })
@@ -183,7 +183,7 @@ const addRole = () => {
 
     connection.query(`select * from department`, (err, res) => {
         for (let i = 0; i < res.length; i++) {
-            console.log(res);
+
             depts.push(res[i].name);
         }
     })
@@ -216,7 +216,7 @@ const addRole = () => {
             (SELECT id FROM department WHERE name='${response.roleDepName}'));`
                 , (err, res) => {
                     if (err) throw err;
-                    console.log(res);
+
                 });
         })
 }
@@ -248,7 +248,7 @@ const addEmp = () => {
 
     connection.query(`select * from role`, (err, res) => {
         for (let i = 0; i < res.length; i++) {
-            console.log(res);
+
             roles.push(res[i].title);
         }
     })
@@ -283,7 +283,7 @@ const addEmp = () => {
             (SELECT id FROM role WHERE title='${response.role}'));`
                 , (err, res) => {
                     if (err) throw err;
-                    console.log(res);
+
                     init();
                 });
         })
@@ -431,7 +431,7 @@ const updateEmp = () => {
     })
 
 
-    
+
     inquirer
         .prompt([
             {
